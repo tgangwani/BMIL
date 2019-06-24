@@ -1,0 +1,56 @@
+seed : 
+
+cuda : auto  # {True, False, auto}
+
+opt:
+    optimizer : RMSProp  # {RMSProp, Adam}
+    alpha : 0.99 # RMSProp
+    betas : [0.9, 0.999] # Adam
+
+    lr : 3.0e-04
+    lr_schedule : linear_decay  # {constant, linear_decay}
+    eps : 1.0e-05
+    max_grad_norm : 0.5
+
+algorithm:
+    gamma : 0.99
+    lam : 0.95  # lambda for GAE
+    num_processes : 32 
+    num_expert_processes : 8
+    num_processes_offPol : 32
+    num_timesteps : 10e6
+    num_steps : 5
+    forward_jump : 5
+    backward_jump : 5
+    center_advantage : False
+
+    # Number of off-policy updates per on-policy update 
+    offPol_updates_mult : 1  
+  
+    # BPTT for num_steps * multiplier_backprop_length
+    multiplier_backprop_length : 10
+
+log:
+    log_interval : 100
+    tmp_dir : './tmp/gym/'
+
+loss_function:
+    pg_loss_coef : 1.
+    entropy_coef : 0.0
+    value_loss_coef : 0.5
+    adversarial_loss_coef : 0.2
+    reg_loss_coef : 0.2
+
+model_setting:
+    nonlinearity : tanh
+    obs_encoder_hidden : [64, 64]
+    belief_dim : 256
+
+    action_encoding_dim : 64
+    discr_action_encoding_dim : 64
+    detach_belief_module : False
+    init_function : orthogonal_  # {orthogonal_, xavier_normal_}
+
+environment:
+    entry_point : False
+    sensor_noise : 0

@@ -1,0 +1,45 @@
+tasks:
+  - env: HalfCheetah-v2
+    expert_db: 'assets/HalfCheetah_expert_paths.pickle'
+    occlusion: [0,1,2,3,4,5,6,7]  # list of sensors "to be shown"
+    init_logstd: 0
+
+  - env: Walker2d-v2
+    expert_db: 'assets/Walker2d_expert_paths_ppo.pickle'
+    occlusion: [0,1,2,3,4,5,6,7]
+    init_logstd: 0
+
+  - env: Hopper-v2
+    expert_db: 'assets/Hopper_expert_paths_ppo.pickle'
+    occlusion: [0,1,2,3,4]
+    init_logstd: 0
+  
+  - env: Swimmer-v2
+    expert_db: 'assets/Swimmer_expert_paths_ppo.pickle'
+    occlusion: [0,1,2,3,4]
+    init_logstd: 0
+
+  - env: Ant-v2
+    expert_db: 'assets/Ant_expert_paths_ppo.pickle'
+    occlusion: [9999]  # too long, hence generated in envs.py using codeword 9999
+    init_logstd: -1
+  
+  - env: Humanoid-v2
+    expert_db: 'assets/Humanoid_expert_paths_ppo.pickle'
+    occlusion: [7777]   # too long, hence generated in envs.py using codeword 7777
+    init_logstd: 0
+
+  - env: HumanoidStandup-v2
+    expert_db: 'assets/HumanoidStandup_expert_paths_ppo.pickle'
+    occlusion: [7777]  # same as Humanoid-v2
+    init_logstd: 0
+
+  - env: InvertedDoublePendulum-v2
+    expert_db: 'assets/InvertedDoublePendulum_expert_paths.pickle'
+    occlusion: [0,1,2,3,4,8,9,10]    
+    init_logstd: 0
+
+  - env: InvertedPendulum-v2
+    expert_db: 'assets/InvertedPendulum_expert_paths.pickle'
+    occlusion: [0,1]    
+    init_logstd: 0
